@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import ReactDOM from "react-dom"
+import './index.css'
+import { Book, BookChildren, BookClass } from './Books'
+import { BookList } from './Booklist'
+import { Navbar } from './Navbar'
+import { LandingPage } from './LandingPage'
+import { Footer } from './Footer'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function BookStore() {
+    return (
+        <div>
+            <Navbar></Navbar>
+            <LandingPage></LandingPage>
+            <BookList></BookList>
+            <Footer />
+        </div>
+    )
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+ReactDOM.render(<BookStore />, document.getElementById('root'))
