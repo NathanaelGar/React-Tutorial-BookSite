@@ -1,36 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Book } from './Books'
-const Books = [
-    {
-        id: 1,
-        img: 'https://images-na.ssl-images-amazon.com/images/I/71BBINThwyL._AC_UL200_SR200,200_.jpg',
-        title: "We are water protecors",
-        author: 'Carole lindstrome',
-        genre: 'Fiction'
-    },
+import { BooksData } from './BooksData'
 
-    {
-        id: 2,
-        img: 'https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL._AC_UL200_SR200,200_.jpg',
-        title: "A Promised Land",
-        author: 'Obama',
-        genre: 'Non-fiction'
-    }
+const wishlistData = [
+
 ]
 
-
 export function BookList() {
+
+    const [wishlist, setWishlist] = useState(wishlistData);
+
+    const addToWL = (book) => {
+        const newWL = wishlist.concat(book);
+        setWishlist(newWL);
+    }
+
     return (
-        <div>
+        <div className="flex-container">
             <div className="booklist">
-                {Books.map((book) => {
+                {BooksData.map((book) => {
 
                     const { img, title, author } = book;
 
                     return (
-                        <Book key={book.id} {...book} />)
+                        <Book add={() => addToWL(book)} key={book.id} {...book} />)
                 }
                 )}
+            </div>
+
+            <div className="wishlist">
+
+                <h1>Wishlist</h1>
+                {wishlist.map((book) => {
+                    const { id, title, author } = book;
+                    return <div key={id} className="item">
+                        <h4>{title}</h4>
+                        <p>{author}</p>
+                    </div>
+                })
+                }
+                <button onClick={() => setWishlist([])}>
+                    Clear Items
+                </button>
+
             </div>
         </div>
     )

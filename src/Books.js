@@ -1,16 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 const clickHandler = () => {
     alert("Thanks for buying book")
 }
 
-export const Book = ({ img, title, author }) => {
+
+export const Book = ({ img, title, author, add }) => {
+    const [purchased, setPurchased] = useState('')
+
     return (
         <div className="book">
             <img src={img}></img>
             <h1>{title}</h1>
             <p>{author}</p>
-            <button type="button" onClick={() => alert("hello World")}>Buy Now</button>
+            <button type="button" onClick={() => setPurchased('Purchased!')}>Buy Now</button>
+            <button onClick={add}>Add To Wishlist</button>
+            <p>{purchased}</p>
         </div>
     )
 }

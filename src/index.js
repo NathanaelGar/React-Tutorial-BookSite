@@ -10,9 +10,9 @@ import { Footer } from './Footer'
 function BookStore() {
     return (
         <div>
-            <Navbar></Navbar>
-            <LandingPage></LandingPage>
-            <BookList></BookList>
+            <Navbar />
+            <LandingPage />
+            <BookList />
             <Footer />
         </div>
     )

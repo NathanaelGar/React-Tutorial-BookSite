@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+
+
 
 export function Navbar() {
+
     return (
         <div className="Navbar">
             <ul>
@@ -10,4 +14,5 @@ export function Navbar() {
             </ul>
         </div>
     )
+
 }
