@@ -1,9 +1,9 @@
 import React from 'react'
 
-export function LandingPage() {
+export function About() {
     return (
         <div className="Landingpage">
-            <h1>Welcome to our book store!</h1>
+            <h1>About Us</h1>
             <p>Buy our books</p>
         </div>
     )

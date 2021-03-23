@@ -1,22 +1,18 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { App } from './App'
 import './index.css'
 import { Book, BookChildren, BookClass } from './Books'
 import { BookList } from './Booklist'
 import { Navbar } from './Navbar'
-import { LandingPage } from './LandingPage'
 import { Footer } from './Footer'
+import { createStore, combineReducers } from 'redux'
+import allReducers from './Reducers'
+import { Provider } from 'react-redux'
 
-function BookStore() {
-    return (
-        <div>
-            <Navbar />
-            <LandingPage />
-            <BookList />
-            <Footer />
-        </div>
-    )
-}
+const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-
-ReactDOM.render(<BookStore />, document.getElementById('root'))
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('root'))
